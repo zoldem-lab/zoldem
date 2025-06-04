@@ -16,9 +16,14 @@ async fn main() {
     let api_routes = api::routes(game_manager.clone());
     let server_sent_events_routes = server_sent_events::routes(game_manager.clone());
     
+    let cors = warp::cors()
+        .allow_any_origin()
+        .allow_headers(vec!["content-type"])
+        .allow_methods(vec!["GET", "POST", "PUT", "DELETE", "OPTIONS"]);
+    
     let routes = api_routes
         .or(server_sent_events_routes)
-        .with(warp::cors().allow_any_origin());
+        .with(cors);
     
     println!("Starting server on localhost:3030");
     warp::serve(routes)
