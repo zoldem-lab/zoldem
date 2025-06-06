@@ -4,76 +4,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoldem Poker</title>
-    <link rel="stylesheet" href="css/poker.css">
+    <link rel="stylesheet" href="css/poker-table.css">
 </head>
 <body>
-    <div id="app">
-        <header>
-            <h1>Zoldem Poker</h1>
-            <div id="connection-status">Connecting...</div>
-        </header>
-        
-        <main>
-            <div id="lobby" class="screen active">
-                <h2>Join a Table</h2>
-                <div class="form-group">
-                    <input type="text" id="player-name" placeholder="Enter your name">
-                    <button id="create-table-btn">Create New Table</button>
-                    <button id="join-table-btn">Join Table</button>
-                    <input type="text" id="table-id" placeholder="Table ID">
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <button class="lobby-btn">LOBBY</button>
+        </div>
+        <div class="nav-center">
+            <span class="table-stakes">2/5 TABLE IS OPEN</span>
+            <button class="join-table-btn">JOIN (150)</button>
+        </div>
+        <div class="nav-right">
+            <div class="balance-display">
+                <span class="balance-amount">100</span>
+                <span class="balance-label">balance</span>
+            </div>
+            <div class="level-info">
+                <span class="level-label">LAM LEVEL 2</span>
+                <span class="blind-info">0.2 Blind</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Game Area -->
+    <div class="game-container">
+        <!-- Poker Table -->
+        <div class="poker-table-container">
+            <div class="poker-table">
+                <div class="table-center">
+                    <p class="join-message">Click SIT to join the table</p>
+                    <div class="game-phase" style="display: none;">
+                        <span class="phase-text">PRE-FLOP</span>
+                    </div>
+                    <div class="community-cards" style="display: none;">
+                        <!-- Community cards will be added dynamically -->
+                    </div>
+                    <div class="pot-display" style="display: none;">
+                        <span class="pot-amount">0</span>
+                    </div>
+                </div>
+
+                <!-- Dealer Button -->
+                <div class="dealer-button" style="display: none;">
+                    <span>D</span>
+                </div>
+
+                <!-- Blinds Indicators -->
+                <div class="blind-indicator small-blind" style="display: none;">
+                    <span>SB</span>
+                </div>
+                <div class="blind-indicator big-blind" style="display: none;">
+                    <span>BB</span>
+                </div>
+
+                <!-- Top Seat -->
+                <div class="seat seat-top" data-seat="1">
+                    <div class="player-info">
+                        <button class="sit-btn">SIT</button>
+                    </div>
+                    <div class="player-cards" style="display: none;">
+                        <div class="card card-back"></div>
+                        <div class="card card-back"></div>
+                    </div>
+                    <div class="player-bet" style="display: none;">0</div>
+                </div>
+                
+                <!-- Bottom Seat -->
+                <div class="seat seat-bottom" data-seat="2">
+                    <div class="player-info">
+                        <button class="sit-btn">SIT</button>
+                    </div>
+                    <div class="player-cards" style="display: none;">
+                        <div class="card card-back"></div>
+                        <div class="card card-back"></div>
+                    </div>
+                    <div class="player-bet" style="display: none;">0</div>
                 </div>
             </div>
-            
-            <div id="game" class="screen">
-                <div id="game-info">
-                    <div>Table: <span id="current-table-id"></span></div>
-                    <div>Pot: $<span id="pot-amount">0</span></div>
-                    <div>Phase: <span id="game-phase">Waiting</span></div>
-                </div>
-                
-                <div id="community-cards">
-                    <h3>Community Cards</h3>
-                    <div id="community-cards-container"></div>
-                </div>
-                
-                <div id="players-container">
-                    <h3>Players</h3>
-                    <div id="players-list"></div>
-                </div>
-                
-                <div id="player-area">
-                    <div id="player-cards">
-                        <h3>Your Cards</h3>
-                        <div id="hand-cards"></div>
-                    </div>
-                    
-                    <div id="player-stats">
-                        <div>Chips: $<span id="player-chips">1000</span></div>
-                        <div>Current Bet: $<span id="current-bet">0</span></div>
-                    </div>
-                    
-                    <div id="action-buttons">
-                        <button id="fold-btn" class="action-btn">Fold</button>
-                        <button id="call-btn" class="action-btn">Call</button>
-                        <button id="check-btn" class="action-btn">Check</button>
-                        <div class="bet-controls">
-                            <input type="number" id="bet-amount" min="1" placeholder="Bet amount">
-                            <button id="bet-btn" class="action-btn">Bet</button>
-                            <button id="raise-btn" class="action-btn">Raise</button>
+        </div>
+
+        <!-- Action Buttons (hidden by default) -->
+        <div class="action-controls" style="display: none;">
+            <div class="betting-info">
+                <span class="current-bet">Current bet: $0</span>
+                <span class="to-call">To call: $0</span>
+            </div>
+            <div class="action-buttons">
+                <button class="action-btn fold-btn">
+                    <span class="btn-text">FOLD</span>
+                </button>
+                <button class="action-btn check-btn">
+                    <span class="btn-text">CHECK</span>
+                </button>
+                <button class="action-btn call-btn">
+                    <span class="btn-text">CALL</span>
+                    <span class="btn-amount">$0</span>
+                </button>
+                <div class="raise-section">
+                    <button class="action-btn raise-btn">
+                        <span class="btn-text">RAISE</span>
+                    </button>
+                    <div class="raise-controls">
+                        <input type="range" class="raise-slider" min="0" max="1000" value="0">
+                        <input type="number" class="raise-amount" placeholder="Amount" min="0">
+                        <div class="quick-bet-buttons">
+                            <button class="quick-bet" data-multiplier="0.5">1/2 POT</button>
+                            <button class="quick-bet" data-multiplier="1">POT</button>
+                            <button class="quick-bet" data-multiplier="2">2x POT</button>
+                            <button class="quick-bet all-in">ALL IN</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
-        
-        <div id="messages">
-            <div id="message-log"></div>
+            <div class="time-bar">
+                <div class="time-progress"></div>
+                <span class="time-remaining">30s</span>
+            </div>
         </div>
     </div>
-    
+
+    <!-- Chat Interface -->
+    <div class="chat-container">
+        <div class="chat-header">
+            <span>Table Chat</span>
+            <button class="chat-minimize">_</button>
+        </div>
+        <div class="chat-messages">
+            <div class="chat-message system">
+                <span>Welcome to the table!</span>
+            </div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" class="chat-input" placeholder="Type a message...">
+            <button class="chat-send">Send</button>
+        </div>
+    </div>
+
+    <!-- Notification Indicator -->
+    <div class="notification-indicator">
+        <span class="notification-count">1</span>
+    </div>
+
+    <!-- Connection Status -->
+    <div class="connection-status disconnected">
+        <span class="status-text">Disconnected</span>
+    </div>
+
+    <!-- Scripts -->
     <script src="js/api-client.js"></script>
     <script src="js/server-sent-events-handler.js"></script>
     <script src="js/ui-components.js"></script>
-    <script src="js/poker-client.js"></script>
+    <script src="js/poker-table.js"></script>
 </body>
 </html>
