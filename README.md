@@ -43,7 +43,7 @@ Server runs on `http://localhost:3030`
 Open `frontend/index.html` in a web browser or serve via HTTP server:
 ```bash
 cd frontend
-python -m http.server 8080
+python3 -m http.server 8080
 ```
 
 ## API Endpoints
