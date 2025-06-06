@@ -356,6 +356,15 @@ body {
     z-index: 30;
 }
 
+/* Top Left Seat - Same Y as top center, shifted 40% left */
+.seat-top-left { 
+    position: absolute;
+    top: calc(50% - 208px); 
+    left: 20%;
+    transform: translate(-50%, -50%); 
+    z-index: 30;
+}
+
 /* Bottom Seat - Positioned 40px outside the bottom border edge (scaled) */
 .seat-bottom { 
     position: absolute;
@@ -779,6 +788,12 @@ body {
     transform: translateX(-50%); 
 }
 
+.seat-top-left .player-cards { 
+    bottom: -35px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
 .seat-bottom .player-cards { 
     top: -35px; 
     left: 50%; 
@@ -804,6 +819,12 @@ body {
 
 .seat-top .player-bet { 
     top: -49px; /* 70px * 0.7 */
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.seat-top-left .player-bet { 
+    top: -49px; 
     left: 50%; 
     transform: translateX(-50%); 
 }
@@ -1065,6 +1086,13 @@ button, input, .seat, .card {
         transform: translate(-50%, -50%); 
     }
     
+    /* Top left seat for tablet */
+    .seat-top-left { 
+        top: calc(50% - 173px); /* Same Y as top center */
+        left: 10%; /* 50% - 40% = 10% */
+        transform: translate(-50%, -50%); 
+    }
+    
     /* Bottom seat positioned 40px outside bottom border on tablet */
     .seat-bottom { 
         bottom: calc(50% - 173px); /* Same distance mirrored */
@@ -1104,13 +1132,13 @@ button, input, .seat, .card {
     }
     
     .poker-table-container {
-        height: 280px; /* 400px * 0.7 */
+        height: 420px; /* Accommodate vertical table (350px) + seat spacing */
     }
     
     .poker-table {
-        width: 350px; /* 500px * 0.7 */
-        height: 175px; /* 250px * 0.7 */
-        border-radius: 87.5px; /* 125px * 0.7 */
+        width: 175px; /* Rotate: height becomes width */
+        height: 350px; /* Rotate: width becomes height */
+        border-radius: 87.5px; /* Keep same border radius */
     }
     
     .poker-table::before {
@@ -1127,18 +1155,49 @@ button, input, .seat, .card {
         font-size: 7.7px; /* 11px * 0.7 */
     }
     
-    /* Top seat positioned 40px outside top border on mobile */
+    /* Top seat becomes left seat on vertical table */
     .seat-top { 
-        top: calc(50% - 138px); /* 87.5px (half height) + 10.5px (border) + 40px (distance) */
-        left: 50%; 
+        top: 50%;
+        left: calc(50% - 138px); /* 87.5px (half width) + 10.5px (border) + 40px (distance) */
         transform: translate(-50%, -50%); 
     }
     
-    /* Bottom seat positioned 40px outside bottom border on mobile */
+    /* Bottom seat becomes right seat on vertical table */
     .seat-bottom { 
-        bottom: calc(50% - 138px); /* Same distance mirrored */
-        left: 50%; 
-        transform: translate(-50%, 50%); 
+        top: 50%;
+        right: calc(50% - 138px); /* Same distance mirrored */
+        transform: translate(50%, -50%); 
+    }
+    
+    /* Player cards positioning for vertical table on mobile */
+    .seat-top .player-cards { 
+        right: -35px; 
+        top: 50%; 
+        transform: translateY(-50%); 
+    }
+
+    .seat-bottom .player-cards { 
+        left: -35px; 
+        top: 50%; 
+        transform: translateY(-50%); 
+    }
+
+    /* Player betting positioning for vertical table on mobile */
+    .seat-top .player-bet { 
+        right: -49px; 
+        top: 50%; 
+        transform: translateY(-50%); 
+    }
+
+    .seat-bottom .player-bet { 
+        left: -49px; 
+        top: 50%; 
+        transform: translateY(-50%); 
+    }
+    
+    /* Hide top-left seat on mobile since table is vertical */
+    .seat-top-left {
+        display: none;
     }
     
     .action-controls {
