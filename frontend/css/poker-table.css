@@ -112,50 +112,50 @@ body {
 .poker-table-container {
     position: relative;
     width: 100%;
-    max-width: 840px; /* 1200px * 0.7 */
-    height: 490px; /* 700px * 0.7 */
+    max-width: 600px; /* 1200px * 0.5 */
+    height: 350px; /* 700px * 0.5 */
     margin: 0 auto;
 }
 
 /* Poker Table */
 .poker-table {
     position: absolute;
-    width: 630px; /* 900px * 0.7 */
-    height: 315px; /* 450px * 0.7 */
+    width: 450px; /* 900px * 0.5 */
+    height: 225px; /* 450px * 0.5 */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: 
         radial-gradient(ellipse at center, #228B22 0%, #006400 60%, #2F4F2F 100%);
-    border-radius: 157.5px; /* 225px * 0.7 */
-    border: 10.5px solid #8B4513; /* 15px * 0.7 */
+    border-radius: 112.5px; /* 225px * 0.5 */
+    border: 7.5px solid #8B4513; /* 15px * 0.5 */
     box-shadow: 
-        inset 0 0 56px rgba(0,0,0,0.4), /* 80px * 0.7 */
-        0 10.5px 35px rgba(0,0,0,0.7), /* 15px * 0.7, 50px * 0.7 */
-        inset 0 0 0 4.2px #654321, /* 6px * 0.7 */
-        inset 0 0 0 7px #5D4E37; /* 10px * 0.7 */
+        inset 0 0 40px rgba(0,0,0,0.4), /* 80px * 0.5 */
+        0 7.5px 25px rgba(0,0,0,0.7), /* 15px * 0.5, 50px * 0.5 */
+        inset 0 0 0 3px #654321, /* 6px * 0.5 */
+        inset 0 0 0 5px #5D4E37; /* 10px * 0.5 */
 }
 
 .poker-table::before {
     content: '';
     position: absolute;
-    top: 17.5px; /* 25px * 0.7 */
-    left: 17.5px;
-    right: 17.5px;
-    bottom: 17.5px;
-    border: 2.1px solid rgba(255,255,255,0.15); /* 3px * 0.7 */
-    border-radius: 140px; /* 200px * 0.7 */
+    top: 12.5px; /* 25px * 0.5 */
+    left: 12.5px;
+    right: 12.5px;
+    bottom: 12.5px;
+    border: 1.5px solid rgba(255,255,255,0.15); /* 3px * 0.5 */
+    border-radius: 100px; /* 200px * 0.5 */
 }
 
 .poker-table::after {
     content: '';
     position: absolute;
-    top: 28px; /* 40px * 0.7 */
-    left: 28px;
-    right: 28px;
-    bottom: 28px;
-    border: 0.7px solid rgba(255,255,255,0.08); /* 1px * 0.7 */
-    border-radius: 129.5px; /* 185px * 0.7 */
+    top: 20px; /* 40px * 0.5 */
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 0.5px solid rgba(255,255,255,0.08); /* 1px * 0.5 */
+    border-radius: 92.5px; /* 185px * 0.5 */
 }
 
 .table-center {
@@ -255,39 +255,39 @@ body {
 
 /* Dynamic positioning for dealer button and blinds - Top seat */
 .seat-top.has-dealer ~ .dealer-button { 
-    top: calc(50% - 178px); /* Above top seat (5px further) */
+    top: calc(50% - 130px); /* Above top seat (5px further) */
     left: 50%; 
     transform: translate(-50%, -50%); 
 }
 
 .seat-top.has-small-blind ~ .small-blind { 
-    top: calc(50% - 178px); 
-    left: calc(50% - 28px); /* 40px * 0.7 */
+    top: calc(50% - 130px); 
+    left: calc(50% - 20px); /* 40px * 0.5 */
     transform: translate(-50%, -50%); 
 }
 
 .seat-top.has-big-blind ~ .big-blind { 
-    top: calc(50% - 178px); 
-    left: calc(50% + 28px); /* 40px * 0.7 */
+    top: calc(50% - 130px); 
+    left: calc(50% + 20px); /* 40px * 0.5 */
     transform: translate(-50%, -50%); 
 }
 
 /* Dynamic positioning for dealer button and blinds - Bottom seat */
 .seat-bottom.has-dealer ~ .dealer-button { 
-    bottom: calc(50% - 178px); /* Below bottom seat (5px further) */
+    bottom: calc(50% - 130px); /* Below bottom seat (5px further) */
     left: 50%; 
     transform: translate(-50%, 50%); 
 }
 
 .seat-bottom.has-small-blind ~ .small-blind { 
-    bottom: calc(50% - 178px); 
-    left: calc(50% - 28px); 
+    bottom: calc(50% - 130px); 
+    left: calc(50% - 20px); 
     transform: translate(-50%, 50%); 
 }
 
 .seat-bottom.has-big-blind ~ .big-blind { 
-    bottom: calc(50% - 178px); 
-    left: calc(50% + 28px); 
+    bottom: calc(50% - 130px); 
+    left: calc(50% + 20px); 
     transform: translate(-50%, 50%); 
 }
 
@@ -347,30 +347,96 @@ body {
     font-weight: bold;
 }
 
-/* Top Seat - Positioned 40px outside the top border edge (scaled) */
-.seat-top { 
+/* Seat positions for 10 seats arranged in an oval pattern */
+/* Seats are numbered 1-10 clockwise starting from top */
+
+/* Seat 1 - Top Center */
+.seat-1 { 
     position: absolute;
-    top: calc(50% - 208px); /* 157.5px (half height) + 10.5px (border) + 40px (distance) */
+    top: calc(50% - 200px);
     left: 50%; 
     transform: translate(-50%, -50%); 
     z-index: 30;
 }
 
-/* Top Left Seat - Same Y as top center, shifted 40% left */
-.seat-top-left { 
+/* Seat 2 - Top Right */
+.seat-2 { 
     position: absolute;
-    top: calc(50% - 208px); 
-    left: 20%;
+    top: calc(50% - 180px);
+    left: calc(50% + 140px);
     transform: translate(-50%, -50%); 
     z-index: 30;
 }
 
-/* Bottom Seat - Positioned 40px outside the bottom border edge (scaled) */
-.seat-bottom { 
+/* Seat 3 - Right */
+.seat-3 { 
     position: absolute;
-    bottom: calc(50% - 208px); /* Same distance as top, but from bottom */
+    top: calc(55% - 80px);
+    left: calc(60% + 220px);
+    transform: translate(-50%, -50%); 
+    z-index: 30;
+}
+
+/* Seat 4 - Right Bottom */
+.seat-4 { 
+    position: absolute;
+    top: calc(75% + 20px);
+    left: calc(60% + 220px);
+    transform: translate(-50%, -50%); 
+    z-index: 30;
+}
+
+/* Seat 5 - Bottom Right */
+.seat-5 { 
+    position: absolute;
+    bottom: calc(50% - 180px);
+    left: calc(50% + 140px);
+    transform: translate(-50%, 50%); 
+    z-index: 30;
+}
+
+/* Seat 6 - Bottom Center */
+.seat-6 { 
+    position: absolute;
+    bottom: calc(50% - 200px);
     left: 50%; 
     transform: translate(-50%, 50%); 
+    z-index: 30;
+}
+
+/* Seat 7 - Bottom Left */
+.seat-7 { 
+    position: absolute;
+    bottom: calc(50% - 180px);
+    left: calc(50% - 140px);
+    transform: translate(-50%, 50%); 
+    z-index: 30;
+}
+
+/* Seat 8 - Left Bottom */
+.seat-8 { 
+    position: absolute;
+    top: calc(75% + 20px);
+    left: calc(40% - 220px);
+    transform: translate(-50%, -50%); 
+    z-index: 30;
+}
+
+/* Seat 9 - Left */
+.seat-9 { 
+    position: absolute;
+    top: calc(55% - 80px);
+    left: calc(40% - 220px);
+    transform: translate(-50%, -50%); 
+    z-index: 30;
+}
+
+/* Seat 10 - Top Left */
+.seat-10 { 
+    position: absolute;
+    top: calc(50% - 180px);
+    left: calc(50% - 140px);
+    transform: translate(-50%, -50%); 
     z-index: 30;
 }
 
@@ -779,23 +845,41 @@ body {
 .player-cards {
     position: absolute;
     display: flex;
-    gap: 2.1px; /* 3px * 0.7 */
+    gap: 1.5px; /* 3px * 0.5 */
 }
 
 .seat-top .player-cards { 
-    bottom: -35px; /* 50px * 0.7 */
+    bottom: -25px; /* 50px * 0.5 */
     left: 50%; 
     transform: translateX(-50%); 
 }
 
 .seat-top-left .player-cards { 
-    bottom: -35px; 
+    bottom: -25px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.seat-top-right .player-cards { 
+    bottom: -25px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.seat-bottom-left .player-cards { 
+    top: -25px; 
     left: 50%; 
     transform: translateX(-50%); 
 }
 
 .seat-bottom .player-cards { 
-    top: -35px; 
+    top: -25px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.seat-bottom-right .player-cards { 
+    top: -25px; 
     left: 50%; 
     transform: translateX(-50%); 
 }
@@ -805,12 +889,12 @@ body {
     position: absolute;
     background: linear-gradient(45deg, #FFD700, #FFA500);
     color: #8B4513;
-    padding: 2.8px 8.4px; /* 4px * 0.7, 12px * 0.7 */
-    border-radius: 10.5px; /* 15px * 0.7 */
+    padding: 2px 6px; /* 4px * 0.5, 12px * 0.5 */
+    border-radius: 7.5px; /* 15px * 0.5 */
     font-weight: bold;
-    font-size: 8.4px; /* 12px * 0.7 */
-    border: 1.4px solid #B8860B; /* 2px * 0.7 */
-    box-shadow: 0 1.4px 2.8px rgba(0,0,0,0.3); /* 2px * 0.7, 4px * 0.7 */
+    font-size: 6px; /* 12px * 0.5 */
+    border: 1px solid #B8860B; /* 2px * 0.5 */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3); /* 2px * 0.5, 4px * 0.5 */
 }
 
 .player-bet::before {
@@ -818,19 +902,37 @@ body {
 }
 
 .seat-top .player-bet { 
-    top: -49px; /* 70px * 0.7 */
+    top: -35px; /* 70px * 0.5 */
     left: 50%; 
     transform: translateX(-50%); 
 }
 
 .seat-top-left .player-bet { 
-    top: -49px; 
+    top: -35px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.seat-top-right .player-bet { 
+    top: -35px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.seat-bottom-left .player-bet { 
+    bottom: -35px; 
     left: 50%; 
     transform: translateX(-50%); 
 }
 
 .seat-bottom .player-bet { 
-    bottom: -49px; 
+    bottom: -35px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.seat-bottom-right .player-bet { 
+    bottom: -35px; 
     left: 50%; 
     transform: translateX(-50%); 
 }
@@ -1093,10 +1195,31 @@ button, input, .seat, .card {
         transform: translate(-50%, -50%); 
     }
     
+    /* Top right seat for tablet */
+    .seat-top-right { 
+        top: calc(50% - 173px); /* Same Y as top center */
+        left: 80%;
+        transform: translate(-50%, -50%); 
+    }
+    
+    /* Bottom left seat for tablet */
+    .seat-bottom-left { 
+        bottom: calc(50% - 173px); /* Same Y as bottom center */
+        left: 20%;
+        transform: translate(-50%, 50%); 
+    }
+    
     /* Bottom seat positioned 40px outside bottom border on tablet */
     .seat-bottom { 
         bottom: calc(50% - 173px); /* Same distance mirrored */
         left: 50%; 
+        transform: translate(-50%, 50%); 
+    }
+    
+    /* Bottom right seat for tablet */
+    .seat-bottom-right { 
+        bottom: calc(50% - 173px); /* Same Y as bottom center */
+        left: 80%;
         transform: translate(-50%, 50%); 
     }
     
@@ -1195,8 +1318,8 @@ button, input, .seat, .card {
         transform: translateY(-50%); 
     }
     
-    /* Hide top-left seat on mobile since table is vertical */
-    .seat-top-left {
+    /* Hide additional seats on mobile since table is vertical */
+    .seat-top-left, .seat-top-right, .seat-bottom-left, .seat-bottom-right {
         display: none;
     }
     
