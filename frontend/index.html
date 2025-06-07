@@ -7,27 +7,6 @@
     <link rel="stylesheet" href="css/poker-table.css">
 </head>
 <body>
-    <!-- Top Navigation Bar -->
-    <nav class="top-nav">
-        <div class="nav-left">
-            <button class="lobby-btn">LOBBY</button>
-        </div>
-        <div class="nav-center">
-            <span class="table-stakes">2/5 TABLE IS OPEN</span>
-            <button class="join-table-btn">JOIN (150)</button>
-        </div>
-        <div class="nav-right">
-            <div class="balance-display">
-                <span class="balance-amount">100</span>
-                <span class="balance-label">balance</span>
-            </div>
-            <div class="level-info">
-                <span class="level-label">LAM LEVEL 2</span>
-                <span class="blind-info">0.2 Blind</span>
-            </div>
-        </div>
-    </nav>
-
     <!-- Main Game Area -->
     <div class="game-container">
         <!-- Poker Table -->
@@ -221,32 +200,6 @@
         </div>
     </div>
 
-    <!-- Chat Interface -->
-    <div class="chat-container">
-        <div class="chat-header">
-            <span>Table Chat</span>
-            <button class="chat-minimize">_</button>
-        </div>
-        <div class="chat-messages">
-            <div class="chat-message system">
-                <span>Welcome to the table!</span>
-            </div>
-        </div>
-        <div class="chat-input-container">
-            <input type="text" class="chat-input" placeholder="Type a message...">
-            <button class="chat-send">Send</button>
-        </div>
-    </div>
-
-    <!-- Notification Indicator -->
-    <div class="notification-indicator">
-        <span class="notification-count">1</span>
-    </div>
-
-    <!-- Connection Status -->
-    <div class="connection-status disconnected">
-        <span class="status-text">Disconnected</span>
-    </div>
 
     <!-- Scripts -->
     <script src="js/api-client.js"></script>
