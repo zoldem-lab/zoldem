@@ -44,38 +44,12 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: 
-        radial-gradient(ellipse at center, #228B22 0%, #006400 60%, #2F4F2F 100%);
+    background: #1a5a1a;
     border-radius: 112.5px; /* 225px * 0.5 */
-    border: 7.5px solid #8B4513; /* 15px * 0.5 */
-    box-shadow: 
-        inset 0 0 40px rgba(0,0,0,0.4), /* 80px * 0.5 */
-        0 7.5px 25px rgba(0,0,0,0.7), /* 15px * 0.5, 50px * 0.5 */
-        inset 0 0 0 3px #654321, /* 6px * 0.5 */
-        inset 0 0 0 5px #5D4E37; /* 10px * 0.5 */
+    border: 15px solid #000000;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
-.poker-table::before {
-    content: '';
-    position: absolute;
-    top: 12.5px; /* 25px * 0.5 */
-    left: 12.5px;
-    right: 12.5px;
-    bottom: 12.5px;
-    border: 1.5px solid rgba(255,255,255,0.15); /* 3px * 0.5 */
-    border-radius: 100px; /* 200px * 0.5 */
-}
-
-.poker-table::after {
-    content: '';
-    position: absolute;
-    top: 20px; /* 40px * 0.5 */
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    border: 0.5px solid rgba(255,255,255,0.08); /* 1px * 0.5 */
-    border-radius: 92.5px; /* 185px * 0.5 */
-}
 
 .table-center {
     position: absolute;
@@ -89,8 +63,7 @@ body {
 .join-message {
     color: #ffffff;
     font-size: 20px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    font-weight: normal;
     margin-bottom: 10px;
 }
 
@@ -215,7 +188,7 @@ body {
     position: absolute;
     width: 63px; /* 90px * 0.7 */
     height: 63px; /* 90px * 0.7 */
-    background: linear-gradient(145deg, #ff7733, #cc4400);
+    background: #333333;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -223,18 +196,12 @@ body {
     align-items: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 2.8px solid #aa3300; /* 4px * 0.7 */
-    box-shadow: 
-        0 4.2px 8.4px rgba(0,0,0,0.4), /* 6px * 0.7, 12px * 0.7 */
-        inset 0 1.4px 2.8px rgba(255,255,255,0.2); /* 2px * 0.7, 4px * 0.7 */
+    border: 2px solid #666666;
     z-index: 20;
 }
 
 .seat:hover {
-    transform: scale(1.05);
-    box-shadow: 
-        0 8px 16px rgba(0,0,0,0.6),
-        0 0 20px rgba(255,119,51,0.5);
+    background: #444444;
 }
 
 .player-info {
@@ -246,24 +213,22 @@ body {
     background: transparent;
     border: none;
     color: white;
-    font-weight: bold;
+    font-weight: normal;
     cursor: pointer;
     font-size: 8.4px; /* 12px * 0.7 */
-    text-shadow: 0.7px 0.7px 1.4px rgba(0,0,0,0.8);
 }
 
 .player-name {
     font-size: 7.7px; /* 11px * 0.7 */
-    font-weight: bold;
+    font-weight: normal;
     color: white;
-    text-shadow: 0.7px 0.7px 1.4px rgba(0,0,0,0.8);
     margin-bottom: 1.4px; /* 2px * 0.7 */
 }
 
 .player-chips {
     font-size: 7px; /* 10px * 0.7 */
-    color: #ffdd44;
-    font-weight: bold;
+    color: #ffffff;
+    font-weight: normal;
 }
 
 /* Seat positions for 10 seats arranged in an oval pattern */
@@ -361,8 +326,8 @@ body {
 
 /* Occupied Seat Styles */
 .seat.occupied {
-    background: #333;
-    border-color: #555;
+    background: #555555;
+    border-color: #777777;
 }
 
 .seat.occupied .player-name {
@@ -954,14 +919,6 @@ button, input, .seat, .card {
         border-radius: 122.5px; /* 175px * 0.7 */
     }
     
-    .poker-table::before {
-        border-radius: 105px; /* 150px * 0.7 */
-    }
-    
-    .poker-table::after {
-        border-radius: 94.5px; /* 135px * 0.7 */
-    }
-    
     .seat {
         width: 42px; /* 60px * 0.7 */
         height: 42px; /* 60px * 0.7 */
@@ -1044,14 +1001,6 @@ button, input, .seat, .card {
         width: 200px; /* Narrower for mobile */
         height: 350px; /* Better height for mobile */
         border-radius: 100px; /* Oval shape */
-    }
-    
-    .poker-table::before {
-        border-radius: 80px;
-    }
-    
-    .poker-table::after {
-        border-radius: 70px;
     }
     
     .seat {
