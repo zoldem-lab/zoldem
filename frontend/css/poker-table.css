@@ -1036,76 +1036,176 @@ button, input, .seat, .card {
     }
     
     .poker-table-container {
-        height: 420px; /* Accommodate vertical table (350px) + seat spacing */
+        height: 100vh; /* Full viewport height for mobile */
+        max-height: 600px;
     }
     
     .poker-table {
-        width: 175px; /* Rotate: height becomes width */
-        height: 350px; /* Rotate: width becomes height */
-        border-radius: 87.5px; /* Keep same border radius */
+        width: 200px; /* Narrower for mobile */
+        height: 350px; /* Better height for mobile */
+        border-radius: 100px; /* Oval shape */
     }
     
     .poker-table::before {
-        border-radius: 70px; /* 100px * 0.7 */
+        border-radius: 80px;
     }
     
     .poker-table::after {
-        border-radius: 59.5px; /* 85px * 0.7 */
+        border-radius: 70px;
     }
     
     .seat {
-        width: 31.5px; /* 45px * 0.7 */
-        height: 31.5px; /* 45px * 0.7 */
-        font-size: 7.7px; /* 11px * 0.7 */
+        width: 60px; /* Bigger seat buttons for mobile */
+        height: 60px; /* Bigger seat buttons for mobile */
     }
     
-    /* Top seat becomes left seat on vertical table */
-    .seat-top { 
-        top: 50%;
-        left: calc(50% - 138px); /* 87.5px (half width) + 10.5px (border) + 40px (distance) */
-        transform: translate(-50%, -50%); 
+    .sit-btn {
+        font-size: 5px;
     }
     
-    /* Bottom seat becomes right seat on vertical table */
-    .seat-bottom { 
-        top: 50%;
-        right: calc(50% - 138px); /* Same distance mirrored */
-        transform: translate(50%, -50%); 
+    .player-name {
+        font-size: 4px;
     }
     
-    /* Player cards positioning for vertical table on mobile */
-    .seat-top .player-cards { 
-        right: -35px; 
-        top: 50%; 
-        transform: translateY(-50%); 
-    }
-
-    .seat-bottom .player-cards { 
-        left: -35px; 
-        top: 50%; 
-        transform: translateY(-50%); 
-    }
-
-    /* Player betting positioning for vertical table on mobile */
-    .seat-top .player-bet { 
-        right: -49px; 
-        top: 50%; 
-        transform: translateY(-50%); 
-    }
-
-    .seat-bottom .player-bet { 
-        left: -49px; 
-        top: 50%; 
-        transform: translateY(-50%); 
+    .player-chips {
+        font-size: 4px;
     }
     
-    /* Hide additional seats on mobile since table is vertical */
-    .seat-top-left, .seat-top-right, .seat-bottom-left, .seat-bottom-right {
-        display: none;
+    /* Mobile vertical oval layout - 10 seats with equal spacing */
+    /* Expanded oval radius for better spacing */
+    
+    .seat-1 { /* Top */
+        top: calc(50% - 230px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .seat-2 { /* Top right */
+        top: calc(50% - 170px);
+        left: calc(50% + 123px);
+        transform: translate(-50%, -50%);
+    }
+    
+    .seat-3 { /* Right upper */
+        top: calc(50% - 61px);
+        left: calc(50% + 160px);
+        transform: translate(-50%, -50%);
+    }
+    
+    .seat-4 { /* Right lower */
+        top: calc(50% + 61px);
+        left: calc(50% + 160px);
+        transform: translate(-50%, -50%);
+    }
+    
+    .seat-5 { /* Bottom right */
+        top: calc(50% + 170px);
+        left: calc(50% + 123px);
+        transform: translate(-50%, -50%);
+    }
+    
+    .seat-6 { /* Bottom */
+        top: calc(50% + 230px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .seat-7 { /* Bottom left */
+        top: calc(50% + 170px);
+        left: calc(50% - 123px);
+        transform: translate(-50%, -50%);
+    }
+    
+    .seat-8 { /* Left lower */
+        top: calc(50% + 61px);
+        left: calc(50% - 160px);
+        transform: translate(-50%, -50%);
+    }
+    
+    .seat-9 { /* Left upper */
+        top: calc(50% - 61px);
+        left: calc(50% - 160px);
+        transform: translate(-50%, -50%);
+    }
+    
+    .seat-10 { /* Top left */
+        top: calc(50% - 170px);
+        left: calc(50% - 123px);
+        transform: translate(-50%, -50%);
     }
     
     .action-controls {
         bottom: 10px;
         min-width: 95%;
+    }
+    
+    /* Make table text smaller on mobile */
+    .sit-btn {
+        font-size: 8px;
+    }
+    
+    .player-name {
+        font-size: 3px;
+    }
+    
+    .player-chips {
+        font-size: 3px;
+    }
+    
+    .join-message {
+        font-size: 14px; /* Smaller for mobile */
+    }
+    
+    .pot-display {
+        font-size: 19.2px; /* 16px * 1.2 */
+        padding: 9.6px 24px; /* 8px * 1.2, 20px * 1.2 */
+    }
+    
+    .game-phase {
+        font-size: 16.8px; /* 14px * 1.2 */
+        padding: 7.2px 19.2px; /* 6px * 1.2, 16px * 1.2 */
+    }
+    
+    .betting-info {
+        font-size: 16.8px; /* 14px * 1.2 */
+    }
+    
+    .btn-text {
+        font-size: 16.8px; /* 14px * 1.2 */
+    }
+    
+    .btn-amount {
+        font-size: 14.4px; /* 12px * 1.2 */
+    }
+    
+    .action-btn {
+        padding: 24px 48px; /* 12px * 2, 24px * 2 */
+        min-width: 160px; /* 80px * 2 */
+    }
+    
+    .raise-amount {
+        padding: 9.6px 14.4px; /* 8px * 1.2, 12px * 1.2 */
+        font-size: 16.8px; /* 14px * 1.2 */
+    }
+    
+    .quick-bet {
+        padding: 7.2px 14.4px; /* 6px * 1.2, 12px * 1.2 */
+        font-size: 13.2px; /* 11px * 1.2 */
+    }
+    
+    .time-remaining {
+        font-size: 14.4px; /* 12px * 1.2 */
+    }
+    
+    .dealer-button {
+        width: 36px; /* 30px * 1.2 */
+        height: 36px; /* 30px * 1.2 */
+        font-size: 16.8px; /* 14px * 1.2 */
+    }
+    
+    .blind-indicator {
+        width: 30px; /* 25px * 1.2 */
+        height: 30px; /* 25px * 1.2 */
+        font-size: 12px; /* 10px * 1.2 */
     }
 }

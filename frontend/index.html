@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zoldem Poker</title>
+    <title>Zoldem Poker Table</title>
     <link rel="stylesheet" href="css/poker-table.css">
 </head>
 <body>
@@ -159,52 +159,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Action Buttons (hidden by default) -->
-        <div class="action-controls" style="display: none;">
-            <div class="betting-info">
-                <span class="current-bet">Current bet: $0</span>
-                <span class="to-call">To call: $0</span>
-            </div>
-            <div class="action-buttons">
-                <button class="action-btn fold-btn">
-                    <span class="btn-text">FOLD</span>
-                </button>
-                <button class="action-btn check-btn">
-                    <span class="btn-text">CHECK</span>
-                </button>
-                <button class="action-btn call-btn">
-                    <span class="btn-text">CALL</span>
-                    <span class="btn-amount">$0</span>
-                </button>
-                <div class="raise-section">
-                    <button class="action-btn raise-btn">
-                        <span class="btn-text">RAISE</span>
-                    </button>
-                    <div class="raise-controls">
-                        <input type="range" class="raise-slider" min="0" max="1000" value="0">
-                        <input type="number" class="raise-amount" placeholder="Amount" min="0">
-                        <div class="quick-bet-buttons">
-                            <button class="quick-bet" data-multiplier="0.5">1/2 POT</button>
-                            <button class="quick-bet" data-multiplier="1">POT</button>
-                            <button class="quick-bet" data-multiplier="2">2x POT</button>
-                            <button class="quick-bet all-in">ALL IN</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="time-bar">
-                <div class="time-progress"></div>
-                <span class="time-remaining">30s</span>
-            </div>
-        </div>
     </div>
-
-
-    <!-- Scripts -->
-    <script src="js/api-client.js"></script>
-    <script src="js/server-sent-events-handler.js"></script>
-    <script src="js/ui-components.js"></script>
-    <script src="js/poker-table.js"></script>
 </body>
 </html>
