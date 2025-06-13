@@ -5,8 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoldem Poker Table</title>
     <link rel="stylesheet" href="css/poker-table.css">
+    <link rel="stylesheet" href="css/auth.css">
 </head>
 <body>
+    <!-- User Info Display -->
+    <div id="userInfo" class="user-info" style="display: none;">
+        <div class="user-name" id="userName"></div>
+        <div class="user-balance">Balance: <span id="userBalance"></span></div>
+        <button id="logoutButton" class="logout-button">Logout</button>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="auth-modal">
+        <div class="auth-container">
+            <h2 id="authTitle" class="auth-title">Login to Zoldem Poker</h2>
+            <div id="authError" class="auth-error"></div>
+            <form id="authForm" class="auth-form">
+                <input 
+                    type="text" 
+                    id="username" 
+                    class="auth-input" 
+                    placeholder="Username" 
+                    required
+                    minlength="3"
+                    maxlength="20"
+                >
+                <input 
+                    type="password" 
+                    id="password" 
+                    class="auth-input" 
+                    placeholder="Password" 
+                    required
+                    minlength="6"
+                >
+                <button type="submit" id="authSubmit" class="auth-button">Login</button>
+            </form>
+            <div id="authToggle" class="auth-toggle">
+                Don't have an account? <a href="#">Register</a>
+            </div>
+        </div>
+    </div>
     <!-- Main Game Area -->
     <div class="game-container">
         <!-- Poker Table -->
@@ -160,5 +198,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="js/poker-table.js"></script>
 </body>
 </html>
